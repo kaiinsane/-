@@ -1,19 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>常用函数</title>
+  <meta charset="UTF-8">
+  <title>常用函数</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
-    
-// 产生范围内随机整数
+  // 产生范围内随机整数
 
-function randomInt(n, m) {
-  return Math.floor(Math.random() * (m - n + 1) + n);
+  function randomInt(n, m) {
+    return Math.floor(Math.random() * (m - n + 1) + n);
+  }
+
+
+  //编写一个方法去掉一个数组的重复元素
+  var array = ['c', 'a', 'z', 'a', 'x', 'a'];
+  function clear() {
+    var o = {};
+    for (var i = 0; i < array.length; i++) {
+      var item = array[i];
+      if (o[item]) {
+        o[item]++;
+      } else {
+        o[item] = 1;
+      }
+    }
+    var tmpArray = [];
+    for (var key in o) {
+      if (o[key] == 1) {
+        tmpArray.push(key);
+      } else {
+        if (tmpArray.indexOf(key) == -1) {
+          tmpArray.push(key);
+        }
+      }
+    }
+    return tmpArray;
+  }
+
+  console.log(clear(array));
+
+
+
+
+//判断一个字符串中出现次数最多的字符，统计这个次数
+var s = 'abcoefoxyozzopp';
+var o = {};
+
+for (var i = 0; i < s.length; i++) {
+  var item = s.charAt(i);
+  if (o[item]) {
+    o[item] ++;
+  }else{
+    o[item] = 1;
+  }
 }
 
+var max = 0;
+var char ;
+for(var key in o) {
+  if (max < o[key]) {
+    max = o[key];
+    char = key;
+  }
+}
+
+console.log(max);
+console.log(char);
+
 </script>
+
 </html>
